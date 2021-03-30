@@ -1,16 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c362a7e5-347f-45fc-8a48-ff77f3e72426" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/worksproject.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/worksproject.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/readme.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/wanguoqiyewang/test/高效率爬取测试反爬机制.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/数据库数据处理/分类处理数据.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/数据库数据处理/号码处理.py" beforeDir="false" afterPath="$PROJECT_DIR$/数据库数据处理/号码处理.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/数据库数据处理/数据二次处理.py" beforeDir="false" afterPath="$PROJECT_DIR$/数据库数据处理/数据二次处理.py" afterDir="false" />
-    </list>
+    <list default="true" id="c362a7e5-347f-45fc-8a48-ff77f3e72426" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,22 +49,28 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="F:\JetBrains files\projects\worksproject\huangye88" />
-      <recent name="F:\JetBrains files\projects\worksproject\bafang" />
-      <recent name="F:\JetBrains files\projects\worksproject\58shipin" />
-      <recent name="F:\JetBrains files\projects\worksproject\student" />
-      <recent name="F:\JetBrains files\projects\worksproject\shunqiwang" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="F:\JetBrains files\projects\worksproject\pillow库\stu" />
       <recent name="F:\JetBrains files\projects\worksproject\huobaoshicaiwang\代理设置" />
       <recent name="F:\JetBrains files\projects\worksproject\huobaoshicaiwang\selenium模拟浏览器请求留言加代理\selenium的基本使用" />
       <recent name="F:\JetBrains files\projects\worksproject\huobaoshicaiwang\selenium模拟浏览器请求留言加代理\留言" />
       <recent name="F:\JetBrains files\projects\worksproject\huobaoshicaiwang\new" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\JetBrains files\projects\worksproject\huangye88" />
+      <recent name="F:\JetBrains files\projects\worksproject\bafang" />
+      <recent name="F:\JetBrains files\projects\worksproject\58shipin" />
+      <recent name="F:\JetBrains files\projects\worksproject\student" />
+      <recent name="F:\JetBrains files\projects\worksproject\shunqiwang" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -88,7 +85,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.rar类型文件操作">
+  <component name="RunManager" selected="Python.数据二次处理">
     <configuration name="单表数据处理" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="worksproject" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -103,6 +100,50 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/数据库数据处理/单表数据处理.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="数据二次处理" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="worksproject" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/数据库数据处理" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/数据库数据处理/数据二次处理.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="AutoDBText" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="worksproject" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/text" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/text/AutoDBText.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -927,6 +968,8 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.数据二次处理" />
+        <item itemvalue="Python.AutoDBText" />
         <item itemvalue="Python.selenium操作" />
         <item itemvalue="Python.单表数据处理" />
         <item itemvalue="Python.rar类型文件操作" />
@@ -1003,6 +1046,7 @@
       <workItem from="1616567958837" duration="2050000" />
       <workItem from="1616632933453" duration="6456000" />
       <workItem from="1617074561994" duration="397000" />
+      <workItem from="1617075051713" duration="3958000" />
     </task>
     <servers />
   </component>
@@ -1093,8 +1137,9 @@
     <SUITE FILE_PATH="coverage/worksproject$rar.coverage" NAME="rar类型文件操作 Coverage Results" MODIFIED="1615534028628" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/student/fileOperation/filerar" />
     <SUITE FILE_PATH="coverage/worksproject$58shipin.coverage" NAME="58shipin Coverage Results" MODIFIED="1615173543096" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/数据库数据处理" />
     <SUITE FILE_PATH="coverage/worksproject$ip.coverage" NAME="代理ip Coverage Results" MODIFIED="1614562032985" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/代理设置" />
-    <SUITE FILE_PATH="coverage/worksproject$.coverage" NAME="号码处理 Coverage Results" MODIFIED="1616663496235" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/数据库数据处理" />
+    <SUITE FILE_PATH="coverage/worksproject$AutoDBText.coverage" NAME="AutoDBText Coverage Results" MODIFIED="1617084677093" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/text" />
     <SUITE FILE_PATH="coverage/worksproject$__1_.coverage" NAME="数据获取 (1) Coverage Results" MODIFIED="1613978127960" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/21shipinshangwu/shipinspider" />
+    <SUITE FILE_PATH="coverage/worksproject$.coverage" NAME="数据二次处理 Coverage Results" MODIFIED="1617085800467" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/数据库数据处理" />
     <SUITE FILE_PATH="coverage/worksproject$requests.coverage" NAME="requests请求 Coverage Results" MODIFIED="1612254223562" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/wanguoqiyewang/test" />
     <SUITE FILE_PATH="coverage/worksproject$crawlspider.coverage" NAME="crawlspider Coverage Results" MODIFIED="1615452829184" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/student/Crawlspider/Crawlspider/spiders" />
     <SUITE FILE_PATH="coverage/worksproject$2.coverage" NAME="数据获取2 Coverage Results" MODIFIED="1613806645046" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/21shipinshangwu/shipinspider" />

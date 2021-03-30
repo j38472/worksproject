@@ -4,14 +4,13 @@ import pymysql
 import re
 import time
 
-
 conn = pymysql.connect(
-            host='127.0.0.1',
-            user='root',
-            password='97655',
-            db='bafang',
-            port=3306,
-            charset='utf8'
+    host='127.0.0.1',
+    port=3306,
+    db='bafangdata',
+    user='root',
+    password='root ',
+    charset='utf8'
 )
 cursor = conn.cursor()
 
@@ -23,7 +22,8 @@ cursor.execute(sql_table)
 data_tuple = cursor.fetchall()
 for data in data_tuple:
     table = data[0]
-    table_name_list.append(table)
+    if (table != 'ziyouname'):
+        table_name_list.append(table)
 
 for table_name in table_name_list:
     # 查询表的最大值
@@ -39,7 +39,7 @@ for table_name in table_name_list:
     # print(int(data))
     print('表{}更新'.format(table_name))
     start_time = time.time()
-    for d in range(1, int(data)+1):
+    for d in range(1, int(data) + 1):
         # 查询语句
         sql = "SELECT phone, telephone, address from {} where id={};".format(table_name, str(d))
         # sql = "SELECT phone, telephone, address from ganxiantiaowei where id='1451';"
@@ -115,7 +115,6 @@ for table_name in table_name_list:
 cursor.close()
 conn.close()
 
-
 # print(res, msg)  # None 0 None
 # print(res, type(msg[0]), msg[1])
 
@@ -188,5 +187,3 @@ conn.close()
 
 # print(res, msg)  # None 0 None
 # print(res, type(msg[0]), msg[1])
-
-

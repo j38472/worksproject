@@ -5,11 +5,11 @@ class AutoDB:
     # 数据库连接
     def __init__(self):
         self.conn = pymysql.connect(
-            host='127.0.0.1',
+            host='localhost',
             port=3306,
-            db='bafang',
+            db='qiyangdata',
             user='root',
-            password='root ',
+            password='root',
             charset='utf8'
         )
         print('链接数据库')
@@ -37,7 +37,10 @@ class AutoDB:
             # data = str(data).split("'")[1]
             # print(data, type(data))  # ('danlei',) <class 'tuple'>
             # print(table, type(table))
-            self.table_list.append(table)
+            # 只有公司名字的表  后续还有用  不进行数据清理
+            if (table != 'ziyouname'):
+                if (table != 'shipinjixieshebeiwang_foodjx'):
+                    self.table_list.append(table)
 
     # 2 数据库数据处理,数据库语句
     def process(self):
@@ -45,34 +48,34 @@ class AutoDB:
         for table_name in self.table_list:
             print('更新表： %s 数据' % table_name)
             sql = """
-            DELETE FROM %s WHERE href IN
-             (SELECT href FROM (SELECT href FROM %s GROUP BY href HAVING COUNT(href)>1) e)
+            DELETE FROM %s WHERE Url IN
+             (SELECT Url FROM (SELECT Url FROM %s GROUP BY Url HAVING COUNT(Url)>1) e)
              AND Id NOT IN 
-             (SELECT Id FROM (SELECT MIN(Id) AS Id FROM %s GROUP BY href HAVING COUNT(href)>1) t);
+             (SELECT Id FROM (SELECT MIN(Id) AS Id FROM %s GROUP BY Url HAVING COUNT(Url)>1) t);
             """ % (table_name, table_name, table_name)
             self.cursor.execute(sql)
             # 删除表中手机号为空的数据
-            sql_phone = """
+            sql_SJ = """
             DELETE FROM %s where id in 
-            (SELECT id from (SELECT * from %s WHERE phone='' and telephone='') t); 
-                      """ % (table_name, table_name)   # 根据数据库中的数据形式，进行数据的清除
-            self.cursor.execute(sql_phone)
+            (SELECT id from (SELECT * from %s WHERE SJ='' and DH='') t); 
+                      """ % (table_name, table_name)  # 根据数据库中的数据形式，进行数据的清除
+            self.cursor.execute(sql_SJ)
             # # 删除主营产品为空的记录
-            sql_is_produce = """
+            sql_is_Zy = """
             DELETE from {} where id in 
-            (SELECT id FROM (SELECT * from {} WHERE produce=' 主打产品: ') t);""".format(table_name, table_name)
-            self.cursor.execute(sql_is_produce)
+            (SELECT id FROM (SELECT * from {} WHERE Zy=' 主打产品: ') t);""".format(table_name, table_name)
+            self.cursor.execute(sql_is_Zy)
             self.conn.commit()
-            # sql_produce = """
+            # sql_Zy = """
             # DELETE from {} where id in
-            # (SELECT id FROM (SELECT * from {} WHERE produce='主营产品： 销售：') t);""".format(table_name, table_name)
-            # self.cursor.execute(sql_produce)
+            # (SELECT id FROM (SELECT * from {} WHERE Zy='主营产品： 销售：') t);""".format(table_name, table_name)
+            # self.cursor.execute(sql_Zy)
 
             self.conn.commit()
 
             # 数据处理
             # 处理公司名称中的记录
-            del_company_list = [
+            del_Name_list = [
                 '%起重%', '%兽药%', '%电子科技%',
                 '%展览%', '%物业%', '%宠物%',
                 '%科技发展%', '%文化%', '%药业%',
@@ -92,14 +95,15 @@ class AutoDB:
                 '%孕安%', '%进出口%', '%会展%',
                 '%酒%', '%广告%', '%娱乐%',
             ]
-            for data in del_company_list:
-                sql_company = """DELETE FROM {} where id in
-                            (SELECT id from (SELECT * FROM {} WHERE company like %s) e);""".format(table_name, table_name)
-                self.cursor.execute(sql_company, data)
+            for data in del_Name_list:
+                sql_Name = """DELETE FROM {} where id in
+                            (SELECT id from (SELECT * FROM {} WHERE Name like %s) e);""".format(table_name,
+                                                                                                   table_name)
+                self.cursor.execute(sql_Name, data)
                 self.conn.commit()
 
             # 根据主营产品相关处理库中的所有记录
-            del_produce_list = [
+            del_Zy_list = [
                 '%提升%', '%礼品%', '%化肥%',
                 '%化妆%', '%塑料%', '%医药%',
                 '%化工%', '%电动%', '%电子%',
@@ -137,10 +141,10 @@ class AutoDB:
                 '%血清%', '%输送机%', '%隔音棉%',
                 '%中药%',
             ]
-            for detail in del_produce_list:
-                sql_produce = """DELETE FROM {} where id in
-                (SELECT id from (SELECT * FROM {} WHERE produce like %s) e);""".format(table_name, table_name)
-                self.cursor.execute(sql_produce, detail)
+            for detail in del_Zy_list:
+                sql_Zy = """DELETE FROM {} where id in
+                (SELECT id from (SELECT * FROM {} WHERE Zy like %s) e);""".format(table_name, table_name)
+                self.cursor.execute(sql_Zy, detail)
                 self.conn.commit()
 
     # 关闭数据库
@@ -154,4 +158,3 @@ class AutoDB:
 auto_db = AutoDB()
 auto_db.auto_data()
 auto_db.process()
-
