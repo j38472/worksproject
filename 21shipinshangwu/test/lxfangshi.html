@@ -1,0 +1,536 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gbk" />
+<title>Ã»ÓÐÕÒµ½ÄúËùÒªµÄÒ³Ãæ</title>
+<link rel="stylesheet" href="https://www.21food.cn/style/2016/base.css" style="text/css">
+<link rel="stylesheet" href="https://www.21food.cn/style/2016/header.css" style="text/css">
+<link rel="stylesheet" href="https://www.21food.cn/style/2016/footer.css" style="text/css">
+<link rel="stylesheet" href="https://www.21food.cn/style/2016/menu.css" style="text/css">
+<link href="https://www.21food.cn/style/2016/main.css" rel="stylesheet" type="text/css" />
+<link href="https://www.21food.cn/style/2016/layout.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="https://www.21food.cn/script/2016/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="https://www.21food.cn/script/2016/header.js"></script>  
+<script type="text/javascript" src="https://www.21food.cn/script/search.js"></script>
+<script src="https://www.21food.cn/tradeonline/js/ajax.js" type="text/javascript"></script>
+<script src="https://www.21food.cn/tradeonline/js/topV2.js" type="text/javascript"></script>
+<!--[if IE 6]>
+<script type="text/javascript" src="js/DD_belatedPNG.js"></script>
+<script type="text/javascript">  
+    DD_belatedPNG.fix('.png_bg');  
+</script>
+<![endif]-->
+ <script type="text/javascript">
+	topMenu();
+
+	function toMemberURL(obj,url)
+	{
+		obj.href="https://my.21food.cn/" + url;
+	}
+
+	
+	function toLogin(){
+		var preUrl = encodeURI(encodeURI(document.location.href));
+		document.location.href="https://my.21food.cn/login!toLogin.action?pre_url="+preUrl;
+	}
+	
+	 //É¾³ý²É¹ºµ¥²úÆ·
+	   function deleteShopCardPro(proId){
+	 		 var token = '';
+	 		 var tr = document.getElementById("top_pro_"+proId);
+	 		 tr.style.display = "none";
+		 	 doAjax({
+				  method : 'get',
+				  url : '/tradeonline/jsp/shopping/shopcar_service.jsp',
+				  data: {action:'delPro',token:token, pro_id:proId},
+				  success : function (code) {
+		          		if(code=='200' || code==200){//³É¹¦
+			          		if(document.title=="ÎÒµÄ²É¹ºµ¥")
+			          		{
+			          			parent.location.reload();return;
+				          	}
+		          			//¶¥²¿
+	                    	var topCarProNum = document.getElementById("topCarProNum").innerHTML;
+	                    	topCarProNum = eval(topCarProNum)-1;
+	                    	if(topCarProNum<0){
+	                    		topCarProNum = 0;
+	                    	}
+	                    	document.getElementById("topCarProNum").innerHTML=topCarProNum;
+	                    	refcgd();
+		          		}
+				  },
+				  async : true
+			});        
+		}
+
+
+   function loginOut(){
+		var preUrl = encodeURI(encodeURI(document.location.href));
+		document.location.href="/member/quit_v2.jsp?pre_url="+preUrl;
+	}
+	
+</script>
+</head>
+<body>
+ <div class="header">
+  <div class="top_zxx_main">
+   <div class="fl_zxx"><span>»¶Ó­À´µ½Ê³Æ·ÉÌÎñÍø£¬</span><a href="javascript:void(0)" class="mf_zce" onclick="toLogin()">µÇÂ¼</a><a href="https://my.21food.cn/register!toRegister.action" class="mf_zce">Ãâ·Ñ×¢²á</a></div><!--fl-->
+   <em class="wap_phone" style="z-index:0">ÊÖ»ú°æ
+    <div class="wet" style="display: none;"><img src="https://www.21food.cn/images/wet.jpg"></div><!--wet-->
+   </em>
+  <div class="fr_zxx">
+   <dl id="topMenu">
+    <dd><a href="https://www.21food.cn" class="zx_inde">ÍøÕ¾Ê×Ò³</a></dd>
+    <dd><span>|</span></dd>
+    <dd><a href="https://my.21food.cn/index!index.action" class="zx_pkv" rel="nofollow">ÎÒµÄÉÌÎñÊÒ</a>
+     <div class="nav_two_t nav_two_to">
+      <table width="270" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+        <td width="100" height="20" valign="middle" align="left"><strong>²É¹º´úÀí</strong></td>
+        <td width="100" height="20" valign="middle" align="left"><strong>¹©Ó¦ÕÐÉÌ</strong></td>
+        <td width="100" height="20" valign="middle" align="left"><strong>ÕË»§ÐÅÏ¢</strong></td>
+      </tr>
+      <tr>
+        <td height="20" valign="middle"><a href="https://my.21food.cn/orders!ordersBuyList.action" rel="nofollow" target="_blank">ÒÑ¹ºÂòµÄ²úÆ·</a></td>
+        <td height="20" valign="middle"><a href="https://my.21food.cn/orders!ordersSaleList.action" rel="nofollow" target="_blank">ÒÑÂô³öµÄ²úÆ·</a></td>
+        <td height="20" valign="middle"><a href="https://my.21food.cn/company!index.action" rel="nofollow" target="_blank">¹«Ë¾ÐÅÏ¢¹ÜÀí</a></td>
+      </tr>
+      <tr>
+        <td height="20" valign="middle"><a href="https://my.21food.cn/post!buy.action" target="_blank" rel="nofollow">·¢²¼Çó¹ºÐÅÏ¢</a></td>
+        <td height="20" valign="middle"><a href="https://my.21food.cn/post!product.action" target="_blank" rel="nofollow">·¢²¼²úÆ·ÐÅÏ¢</a></td>
+        <td height="20" valign="middle"><a href="https://my.21food.cn/quality_certification!index.action" target="_blank" rel="nofollow">ÈÏÖ¤¹ÜÀí</a></td>
+      </tr>
+      <tr>
+        <td height="20" valign="middle"><a href="https://my.21food.cn/business_manage!exchangesList.action" target="_blank" rel="nofollow">Çó¹ºÐÅÏ¢¹ÜÀí</a></td>
+        <td height="20" valign="middle"><a href="https://my.21food.cn/product!productsList.action" target="_blank" rel="nofollow">²úÆ·ÐÅÏ¢¹ÜÀí</a></td>
+        <td height="20" valign="middle"><a href="https://my.21food.cn/account!fundsIndex.action" target="_blank" rel="nofollow">×Ê½ðÕË»§</a></td>
+      </tr>
+      <tr>
+        <td height="20" valign="middle"><a href="https://my.21food.cn/business_manage!exchangesList.action" target="_blank" rel="nofollow">´úÀíÐÅÏ¢¹ÜÀí</a></td>
+        <td height="20" valign="middle"><a href="https://my.21food.cn/business_manage!exchangesList.action" target="_blank" rel="nofollow">ÕÐÉÌÐÅÏ¢¹ÜÀí</a></td>
+        <td height="20" valign="middle"><a href="#" target="_blank" rel="nofollow">&nbsp;</a></td>
+      </tr>
+     </table>
+     </div><!--nav_two_t-->
+    </dd>
+    <dd style="z-index:0"><span>|</span></dd>
+    <dd><a href="javascript:void(0)" onclick="toLogin()" class="zx_pkvg" rel="nofollow"><em>²É¹ºµ¥</em><i id="topCarProNum">0</i></a>
+     <div class="nav_two_t nav_two_cgdv">
+      <div id="cgd_top"><table width="315" border="0" cellpadding="0" cellspacing="0"><tbody></tbody></table><div id="cgd_proids" data="" num="0" class="nt_cgd_tb"><button type="button" onclick="toLogin()" value="²é¿´ÎÒµÄ²É¹ºµ¥" style="color: #fff;background: #ff8400;border:none;" class="nt_g_ckd_2">²é¿´ÎÒµÄ²É¹ºµ¥</button><span><em>0</em>ÖÖ²úÆ·£¬¹²<em>0</em>¼þ  </span></div></div><!--nt_cgd_tb-->
+     </div><!--nav_two_t-->
+    </dd>
+    <dd><span>|</span></dd>
+    <dd style="z-index:0"><a href="#" class="zx_pkv">ÊÕ²Ø¼Ð</a>
+     <div class="nav_two_t nav_two_to" style="display: none;">
+      <ul>
+       <li><a href="https://my.21food.cn/message!listFavorites.action" rel="nofollow">ÊÕ²Ø²úÆ·</a></li>
+       <li><a href="https://my.21food.cn/message!listFavorites.action?type=enterprise" rel="nofollow">ÊÕ²ØÆóÒµ</a></li>
+      </ul>
+     </div><!--nav_two_t-->
+    </dd>
+    <dd><span>|</span></dd>
+    <dd><a href="javascript:void(0);" class="zx_pkv">ÍøÕ¾·þÎñ</a>
+     <div class="nav_two_t nav_two_to">
+      <table width="180" border="0" cellpadding="0" cellspacing="0">
+       <tr>
+        <td width="90" height="25" valign="middle"><a href="https://www.21food.cn/special/member_service/" rel="nofollow">VIP»áÔ±·þÎñ</a></td>
+        <td width="90" height="25" valign="middle"><a href="https://www.21food.cn/about/media/" rel="nofollow">Ã½ÌåÐû´«</a></td>
+       </tr>
+       <tr>
+        <td height="20" valign="middle"><a href="https://www.21food.cn/special/ad_service/" target="_blank" rel="nofollow">¹ã¸æ·þÎñ</a></td>
+        <td height="20" valign="middle"><a href="http://wx.21food.cn" target="_blank" rel="nofollow">Î¢ÐÅÓªÏúÍ¨</a></td>
+      </tr>
+      <tr>
+        <td height="20" valign="middle"><a href="https://www.21food.cn/special/website_build/" target="_blank" rel="nofollow">ÍøÕ¾½¨Éè</a></td>
+        <td height="20" valign="middle"><a href="/special/buyer_meet/" target="_blank" rel="nofollow">Âò¼Ò¼ûÃæ»á</a></td>
+      </tr>
+      <tr>
+        
+        <td height="20" valign="middle"><a href="https://www.21food.cn/special/journal/" target="_blank" rel="nofollow">Íø¿¯ÍÆ¹ã</a></td>
+        <td height="20" valign="middle"><a href="https://www.21food.cn/special/overseas_fair/" target="_blank" rel="nofollow">º£Íâ²ÎÕ¹</a></td>
+      </tr>
+      </table>
+      </div><!--nav_two_t-->
+     </dd>
+     <dd><span>|</span></dd>
+     <dd><a href="https://www.21food.cn/help/help_problem.html" class="zx_pkv">¿Í·þÖÐÐÄ</a>
+      <div class="nav_two_t nav_two_tf">
+       <ul>
+	      <li><a href="https://www.21food.cn/help/help_center.html" target="_blank" rel="nofollow">Âò¼Ò°ïÖú</a></li>
+	       <li><a href="https://www.21food.cn/help/help_seller.html" target="_blank" rel="nofollow">Âô¼Ò°ïÖú</a></li>
+	       <li><a href="https://www.21food.cn/help/help_problem.html" target="_blank" rel="nofollow">³£¼ûÎÊÌâ</a></li>
+	       <li><a href="https://www.21food.cn/help/help_contact.html" target="_blank" rel="nofollow">ÁªÏµÎÒÃÇ</a></li>
+        </ul>
+       </div><!--nav_two_t-->
+      </dd>
+      <dd><span>|</span></dd>
+      <dd><a href="#" class="zx_pkv">ÍøÕ¾µ¼º½</a>
+     <div class="nav_two_t nav_two_tov">
+      <table width="160" border="0" cellpadding="0" cellspacing="0">
+       <tr>
+        <td width="40" height="25" valign="middle"><a href="https://www.21food.cn">Ê×Ò³</a></td>
+        <td width="40" height="25" valign="middle"><a href="http://zs.21food.cn/">ÕÐÉÌ</a></td>
+        <td width="40" height="25" valign="middle"><a href="https://www.21food.cn/product/">²úÆ·</a></td>
+        <td width="40" height="25" valign="middle"><a href="https://www.21food.cn/company/">ÆóÒµ</a></td>
+       </tr>
+      <tr>
+        <td width="40" height="25" valign="middle"><a href="https://www.21food.cn/trade/">¹©Ó¦</a></td>
+        <td width="40" height="25" valign="middle"><a href="https://www.21food.cn/trade/mai.htm">Çó¹º</a></td>
+        <td width="40" height="25" valign="middle"><a href="https://www.21food.cn/quote/">±¨¼Û</a></td>
+        <td width="40" height="25" valign="middle"><a href="https://www.21food.cn/news/market.htm">ÐÐÇé</a></td>
+       </tr>
+      <tr>
+        <td width="40" height="25" valign="middle"><a href="https://www.21food.cn/news/">×ÊÑ¶</a></td>
+        <td width="40" height="25" valign="middle"><a href="https://www.21food.cn/brands/">Æ·ÅÆ</a></td>
+        <td width="40" height="25" valign="middle"><a href="https://www.21food.cn/exhibition/">»áÕ¹</a></td>
+        <td width="40" height="25" valign="middle"><a href="https://www.21food.cn/hot/">ÈÈÃÅ</a></td>
+       </tr>
+       <tr><td width="160" height="25" valign="middle" bgcolor="#ededed" colspan="4"><strong>ÐÐÒµÆµµÀ</strong></td></tr>
+       <tr>
+        <td width="80" height="25" valign="middle" colspan="2"><a href="http://jixie.21food.cn">Ê³Æ·»úÐµ</a></td>
+        <td width="80" height="25" valign="middle" colspan="2"><a href="http://baozhuang.21food.cn">Ê³Æ·°ü×°</a></td>
+       </tr>
+       <tr>
+        <td width="80" height="25" valign="middle" colspan="2"><a href="http://tjj.21food.cn">Ê³Æ·Ìí¼Ó¼Á</a></td>
+        <td width="80" height="25" valign="middle" colspan="2"><a href="http://scp.21food.cn">Ë®²úÆ·ÆµµÀ</a></td>
+       </tr>
+       <tr>
+        <td width="80" height="25" valign="middle" colspan="2"><a href="http://rzp.21food.cn">ÈéÖÆÆ·ÆµµÀ </a></td>
+        <td width="80" height="25" valign="middle" colspan="2"><a href="http://baojian.21food.cn">±£½¡Ê³Æ·</a></td>
+       </tr>
+       <tr>
+        <td width="80" height="25" valign="middle" colspan="2"><a href="http://dianfen.21food.cn">µí·Û</a></td>
+        <td width="80" height="25" valign="middle" colspan="2"><a href="http://guoshu.21food.cn">¹ûÊß</a></td>
+       </tr>
+       <tr>
+        <td width="80" height="25" valign="middle" colspan="2"><a href="http://liangshi.21food.cn">Á¸Ê³</a></td>
+        <td width="80" height="25" valign="middle" colspan="2"><a href="http://xiuxian.21food.cn">ÐÝÏÐÊ³Æ·</a></td>
+       </tr>
+       <tr>
+        <td width="80" height="25" valign="middle" colspan="2"><a href="http://fangbian.21food.cn">·½±ãÊ³Æ· </a></td>
+        <td width="80" height="25" valign="middle" colspan="2"><a href="http://guantou.21food.cn">¹ÞÍ·Ê³Æ·</a></td>
+       </tr>
+      </table>
+     </div><!--nav_two_t-->
+    </dd>
+      <dd><span>|</span></dd>
+      <dd><a href="http://www.21food.com/">ENGLISH</a></dd>
+     </dl>
+    </div><!--fr-->
+   </div><!--top_zxx_main-->
+ </div><!-- header -->
+ <script type="text/javascript">
+   $(document).click(function(){
+ 	if ($(".jat_mnt").css("display") != "none") $(".jat_mnt").hide();
+ 	 });
+	$(document).ready(function () {
+	$(".jag_ttt").click(function (event) {
+			if ($(".jat_mnt").css("display") == "none") {
+				$(".jat_mnt").show();
+			}
+			else {
+				$(".jat_mnt").hide();
+			}
+			 event.stopPropagation();
+		});
+		$(".jat_mnt li").click(function (event) {
+			$tt = $(this);
+			$(".valt").val($tt.data("val"));
+			$(".valt_name").text($tt.data("txt"));
+			$(".jat_mnt").hide();
+			event.stopPropagation();
+		});
+	});
+ </script>
+ <div class="content_p content_prod">
+  <div class="main_top">
+   <div class="top_t_l"><a href="https://www.21food.cn"><img src="https://www.21food.cn/tradeonline/images/v3/images/logo.jpg" /></a></div><!--top_t_l-->
+   <div class="top_t_r">
+    <div class="top_t_rl">
+	  <div class="jag_right">
+	   <form name="topNavSearch" method="GET" onSubmit="return f_topnavsearch(this);" action="https://www.21food.cn/placehoder.jsp">
+	   <div class="jag_ttt">
+		<span class="valt_name">²úÆ·</span>
+		<input type="hidden" class="valt" value="product" name="searchItem" id="searchItem" />
+	    </div><!--jag_ttt-->
+        <ul class="jat_mnt">
+         <li data-txt="²úÆ·" data-val="product">²úÆ·</li>
+         <li data-txt="Çó¹º" data-val="sell">Çó¹º</li>
+         <li data-txt="¹©Ó¦ÉÌ" data-val="buy">¹©Ó¦ÉÌ</li>
+         <li data-txt="×ÊÑ¶" data-val="news">×ÊÑ¶</li>
+        </ul>
+       </div><!--jag_right-->
+       <div class="select_key">
+	    <input name="keys" type="text" id="keys2" class="txt_ser" value="ÇëÊäÈëÄúÐèÒª²éÕÒµÄ¹Ø¼ü×Ö" onfocus="if(this.value =='ÇëÊäÈëÄúÐèÒª²éÕÒµÄ¹Ø¼ü×Ö'){this.value =''}" onblur="if (this.value ==''){this.value='ÇëÊäÈëÄúÐèÒª²éÕÒµÄ×ÊÑ¶'}" 
+	    onkeydown="if(event.keyCode == 13&&currentSelIndex!=-1)return false;"/>
+        <ul class="ulItems" id="ulItems" style="display:none;"></ul>
+       </div><!--select_key-->
+      <input name="" type="submit" class="txt_btnm" value="ËÑË÷" />
+       </form>
+                       <script language="javascript">
+
+
+                    function f_topnavsearch(form){
+                        var regex = /^\s+|\s+$/;
+                        var e = form.elements['keys'];
+                        e.value = e.value.replace(regex,'');
+                        if(e.value.length<1 || e.value.indexOf('ÊäÈë¹Ø¼ü')>=0 || e.value.indexOf('ÊäÈëËÑË÷')>=0){
+                            alert('ÇëÊäÈë¹Ø¼ü´Ê');e.focus();return false;
+                        }
+                        if(document.getElementById("type") != null)
+                        {
+                            if(e.value.length <=1) {alert('×îÉÙÊäÈë2¸öËÑË÷¹Ø¼ü×Ö');e.focus();return false;}
+                        }
+                        setCookie("searchkey",e.value);
+                        return true;
+                    }
+                </script>
+     </div><!--top_t_rl--> 
+    <a href="https://www.21food.cn/trade/post_buy_info.jsp" class="weitu">Î¯ÍÐÕÒ»õ</a>
+   </div><!--top_t_r-->
+  </div><!--main_top-->
+  <div class="main_nav">
+   <dl>
+    <dd><a href="https://www.21food.cn/product/">²úÆ·</a></dd>
+    <dd><a href="http://zs.21food.cn/">ÕÐÉÌ</a></dd>
+    <dd><a href="https://www.21food.cn/trade/mai.htm">²É¹º</a></dd>
+    <dd><a href="https://www.21food.cn/trade/">¹©Ó¦</a></dd>
+    <dd><a href="https://www.21food.cn/company/">ÆóÒµ</a></dd>
+    <dd><a href="http://news.21food.cn/">×ÊÑ¶</a></dd>
+    <dd><a href="https://www.21food.cn/exhibition/">Õ¹»á</a></dd>
+   </dl>
+  </div><!--main_nav--> 
+  <div class="error_main">
+   <div class="error_min_t">
+    <div class="error_min_t_left"><img src="https://www.21food.cn/images/2016/er_pkq.jpg" /></div><!--error_min_t_left-->
+    <div class="error_min_t_right">
+     <span>Error 404</span>
+     <em>±§Ç¸Ã»ÓÐÕÒµ½Ïà¹Ø½á¹û»òÄúÒª·ÃÎÊµÄÒ³Ãæ²»´æÔÚ£¡</em>
+     <i>ÓÐ¿ÉÄÜÎÒÃÇµÄÍøÒ³ ÒÑÉ¾³ý£¬»òÒÑ¸ÄÃû£¬»òÔÝÊ±²»¿ÉÓÃ¡£</i>
+     <i class="op_l_lk">Çë³¢ÊÔÒÔÏÂ²Ù×÷£º<br/>
+        1.Èç¹ûÄúÒÑ¾­ÔÚµØÖ·À¸ÖÐÊäÈë¸ÃÍøÒ³µÄµØÖ·£¬ÇëÈ·ÈÏÆäÆ´Ð´ÕýÈ·¡£<br/> 
+        2.´ò¿ªÖ÷Ò³<a href="https://www.21food.cn">https://www.21food.cn</a>£¬È»ºó²éÕÒÖ¸ÏòÄú¸ÐÐËÈ¤µÄÁ´½Ó¡£<br/> 
+        3.µ¥»÷ºóÍË°´Å¥£¬³¢ÊÔÆäËûÁ´½Ó¡£
+     </i>
+    </div><!--error_min_t_right-->
+   </div><!--error_min_t-->
+   <div class="error_min_b">
+    <div class="error_min_bt"><span>·ÖÀàä¯ÀÀ</span><a href="https://www.21food.cn/product/">¸ü¶à&gt;&gt;</a></div><!--error_min_bt-->
+    <div class="error_min_bb">
+     <dl>
+      <dd>
+       <span class="plv_k1"><a href="https://www.21food.cn/product/productlist01.html">Å©ÄÁÓãÀà</a></span>
+       <em><a href="https://www.21food.cn/product/productlist01008.html">Ê³ÓÃ¾ú</a>
+		
+			<a href="https://www.21food.cn/product/productlist01003.html">ÐÂÏÊË®¹û</a>
+		
+			<a href="https://www.21food.cn/product/productlist01002.html">ÐÂÏÊÊß²Ë</a>
+		
+			<a href="https://www.21food.cn/product/productlist01006.html">ÏÊ»îÐóÇÝ</a>
+		
+			<a href="https://www.21food.cn/product/productlist01001.html">Á¸Ê³</a>
+		
+			<a href="https://www.21food.cn/product/productlist01005.html">ÏÊ»îË®²úÆ·</a>
+		
+			<a href="https://www.21food.cn/product/productlist01004.html">¸É¹û¡¢¼á¹û</a>
+		
+			<a href="https://www.21food.cn/product/productlist01007.html">µ°Àà</a>
+		
+			<a href="https://www.21food.cn/product/productlist01009.html">¿§·È¶¹¡¢¿É¿É</a>
+		
+			<a href="https://www.21food.cn/product/productlist01999.html">ÆäËûÅ©ÄÁÓæÀà</a>
+	</em>
+      </dd>
+      <dd>
+       <span class="plv_k2"><a href="https://www.21food.cn/product/productlist03.html">Ê³Æ·Àà</a></span>
+       <em><a href="https://www.21food.cn/product/productlist03007.html">¾ÆÀà</a>
+		
+			<a href="https://www.21food.cn/product/productlist03010.html">ÐÝÏÐÊ³Æ·</a>
+		
+			<a href="https://www.21food.cn/product/productlist02015.html">µ÷Î¶Æ·</a>
+		
+			<a href="https://www.21food.cn/product/productlist03003.html">ÈéÖÆÆ·</a>
+		
+			<a href="https://www.21food.cn/product/productlist03006.html">ÒûÁÏ¡¢ÒûÆ·</a>
+		
+			<a href="https://www.21food.cn/product/productlist03002.html">¶¹ÖÆÆ·</a>
+		
+			<a href="https://www.21food.cn/product/productlist03009.html">·½±ãÊ³Æ·</a>
+		
+			<a href="https://www.21food.cn/product/productlist03001.html">ÈâÖÆÆ·</a>
+		
+			<a href="https://www.21food.cn/product/productlist03012.html">¹ÞÍ·Ê³Æ·</a>
+		
+			<a href="https://www.21food.cn/product/productlist02016.html">ÌáÈ¡Îï</a>
+		
+			<a href="https://www.21food.cn/product/productlist03011.html">×Ì²¹±£½¡Æ·</a>
+		
+			<a href="https://www.21food.cn/product/productlist03004.html">µ°ÖÆÆ·</a>
+		
+			<a href="https://www.21food.cn/product/productlist03999.html">ÆäËûÉî¼Ó¹¤Àà</a>
+</em>
+      </dd>
+      <dd>
+       <span class="plv_k3"><a href="https://www.21food.cn/product/productlist04.html">Ê³Æ·»úÐµ</a></span>
+       <em><a href="https://www.21food.cn/product/productlist04001.html">Í¨ÓÃÉè±¸</a>
+		
+			<a href="https://www.21food.cn/product/productlist04002.html">×¨ÓÃÉè±¸</a>
+		
+			<a href="https://www.21food.cn/product/productlist04004.html">Ê³Æ·°ü×°Éè±¸</a>
+		
+			<a href="https://www.21food.cn/product/productlist04003.html">ÊÔÑéÉè±¸</a>
+		
+			<a href="https://www.21food.cn/product/productlist04999.html">ÆäËûÊ³Æ·»úÐµ</a>
+</em>
+      </dd>
+      <dd>
+       <span class="plv_k4"><a href="https://www.21food.cn/product/productlist05.html">Ê³Æ·°ü×°</a></span>
+       <em><a href="https://www.21food.cn/product/productlist05001.html">Ö½ÖÊ²ÄÁÏÀà</a>
+		
+			<a href="https://www.21food.cn/product/productlist05002.html">²£Á§¼°ÌÕ´ÉÀà</a>
+		
+			<a href="https://www.21food.cn/product/productlist05003.html">ËÜÁÏÀà</a>
+		
+			<a href="https://www.21food.cn/product/productlist05004.html">½ðÊô²ÄÁÏÀà</a>
+		
+			<a href="https://www.21food.cn/product/productlist05005.html">¸´ºÏÄ¤Àà</a>
+		
+			<a href="https://www.21food.cn/product/productlist05006.html">Ä¾ÖÊ²ÄÁÏÀà</a>
+		
+			<a href="https://www.21food.cn/product/productlist05999.html">ÆäËûÊ³Æ·°ü×°</a>
+</em>
+      </dd>
+     </dl>
+     <dl class="last_pok">
+      <dd>
+       <span class="plv_k5"><a href="https://www.21food.cn/product/productlist02.html">Ê³Æ·ÅäÁÏ</a></span>
+       <em><a href="https://www.21food.cn/product/productlist03019.html">ÈâÀà</a>
+		
+			<a href="https://www.21food.cn/product/productlist03018.html">²èÒ¶</a>
+		
+			<a href="https://www.21food.cn/product/productlist02007.html">µí·ÛÀà</a>
+		
+			<a href="https://www.21food.cn/product/productlist03017.html">Ã×ÃæÀà</a>
+		
+			<a href="https://www.21food.cn/product/productlist02002.html">Ê³ÓÃÓÍ</a>
+		
+			<a href="https://www.21food.cn/product/productlist03016.html">¼Ó¹¤Ë®²úÆ·</a>
+		
+			<a href="https://www.21food.cn/product/productlist02004.html">Êß²ËÖÆÆ·</a>
+		
+			<a href="https://www.21food.cn/product/productlist02006.html">ÌÇÀà</a>
+		
+			<a href="https://www.21food.cn/product/productlist02009.html">¼Ó¹¤Ë®¹û</a>
+		
+			<a href="https://www.21food.cn/product/productlist02010.html">ÏÚÁÏ</a>
+		
+			<a href="https://www.21food.cn/product/productlist02011.html">ÃÛÖÆÆ·</a>
+		
+			<a href="https://www.21food.cn/product/productlist02999.html">ÆäËû¼ò¼Ó¹¤Àà</a>
+		
+</em>
+      </dd>
+      <dd>
+       <span class="plv_k6"><a href="https://www.21food.cn/product/productlist06.html">Ê³Æ·Ìí¼Ó¼Á</a></span>
+       <em><a href="https://www.21food.cn/product/productlist06001.html">Ôö³í¼Á</a>
+		
+			<a href="https://www.21food.cn/product/productlist06002.html">×ÅÉ«¼Á¡¢»¤É«¼Á</a>
+		
+			<a href="https://www.21food.cn/product/productlist06003.html">Ïã¾«¡¢ÏãÁÏ</a>
+		
+			<a href="https://www.21food.cn/product/productlist06004.html">ÌðÎ¶¼Á</a>
+		
+			<a href="https://www.21food.cn/product/productlist06005.html">·À¸¯¼Á</a>
+		
+			<a href="https://www.21food.cn/product/productlist06006.html">¿¹Ñõ»¯¼Á</a>
+		
+			<a href="https://www.21food.cn/product/productlist06007.html">Èé»¯¼Á</a>
+		
+			<a href="https://www.21food.cn/product/productlist06008.html">±£ÏÊ¼Á</a>
+		
+			<a href="https://www.21food.cn/product/productlist06009.html">ËáÎ¶¼Á</a>
+		
+			<a href="https://www.21food.cn/product/productlist06010.html">ÅòËÉ¼Á</a>
+		
+			<a href="https://www.21food.cn/product/productlist06011.html">Æ¯°×¼Á</a>
+		
+			<a href="https://www.21food.cn/product/productlist06012.html">Ë®·Ö±£³Ö¼Á</a>
+		
+			<a href="https://www.21food.cn/product/productlist06013.html">ÓªÑøÇ¿»¯¼Á</a>
+		
+			<a href="https://www.21food.cn/product/productlist06014.html">Æ·ÖÊ¸ÄÁ¼¼Á</a>
+		
+			<a href="https://www.21food.cn/product/productlist06015.html">ÎÈ¶¨¼Á¡¢Äý¹Ì¼Á</a>
+		
+			<a href="https://www.21food.cn/product/productlist06016.html">Ã¸ÖÆ¼Á</a>
+		
+			<a href="https://www.21food.cn/product/productlist06017.html">ÏûÅÝ¼Á</a>
+		
+			<a href="https://www.21food.cn/product/productlist06018.html">¿¹½á¼Á</a>
+		
+			<a href="https://www.21food.cn/product/productlist06019.html">±»Ä¤¼Á</a>
+		
+			<a href="https://www.21food.cn/product/productlist06020.html">¸ÉÔï¼Á</a>
+		
+			<a href="https://www.21food.cn/product/productlist06021.html">·¢½Í¼Á</a>
+		
+			<a href="https://www.21food.cn/product/productlist06022.html">ÔöÎ¶¼Á</a>
+		
+			<a href="https://www.21food.cn/product/productlist06999.html">ÆäËûÊ³Æ·Ìí¼Ó¼Á</a>
+	</em>
+      </dd>
+      <dd>
+       <span class="plv_k7"><a href="https://www.21food.cn/product/productlist09.html">ÉÌÒµ·þÎñ</a></span>
+       <em>
+			<a href="https://www.21food.cn/product/productlist09001.html">¹ã¸æ·þÎñ</a>
+		
+			<a href="https://www.21food.cn/product/productlist09002.html">ÐÅÏ¢×ÉÑ¯</a>
+		
+			<a href="https://www.21food.cn/product/productlist09003.html">ÍâÃ³·þÎñ</a>
+		
+			<a href="https://www.21food.cn/product/productlist09004.html">¾­¼Ã¼¼ÊõºÏ×÷</a>
+		
+			<a href="https://www.21food.cn/product/productlist09005.html">½ÌÓýÅàÑµ</a>
+		
+			<a href="https://www.21food.cn/product/productlist09006.html">ÔËÊä²Ö´¢</a>
+		
+			<a href="https://www.21food.cn/product/productlist09007.html">ÎïÁ÷ÅäËÍ</a>
+		
+			<a href="https://www.21food.cn/product/productlist09008.html">ÀäÎÂ¿â</a>
+		
+			<a href="https://www.21food.cn/product/productlist09009.html">ÈÏÖ¤·þÎñ</a>
+		
+			<a href="https://www.21food.cn/product/productlist09999.html">ÆäËûÉÌÒµ·þÎñ</a>
+</em>
+      </dd>
+     </dl>
+    </div><!--error_min_bb-->
+   </div><!--error_min_b-->
+  </div><!--error_main-->
+ </div><!--content_p-->
+<div class="footer">
+<a href="https://www.21food.cn/about/about.htm" target="_blank">¹ØÓÚÎÒÃÇ</a> |
+		<a href="https://www.21food.cn/special/member_service/" target="_blank">»áÔ±·þÎñ </a> |
+	
+		<a href="https://www.21food.cn/special/ad_service/" target="_blank">ÍøÕ¾¹ã¸æ</a> |
+		<a href="https://www.21food.cn/about/media/" target="_blank">Ã½ÌåÐû´«</a> |
+		<a href="https://www.21food.cn/special/website_build/" target="_blank">ÍøÕ¾½¨Éè</a> | 
+        <a href="http://wx.21food.cn" target="_blank">Î¢ÐÅÓªÏúÍ¨</a> | 
+		<a href="https://www.21food.cn/special/buyer_meet/" target="_blank">Âò¼Ò¼ûÃæ»á</a> |
+		<a href="https://www.21food.cn/special/journal/" target="_blank">Íø¿¯ÍÆ¹ã</a> |
+		<a href="https://www.21food.cn/special/exhibition_spread/" target="_blank">Õ¹»áÍÆ¹ã</a> |
+        
+		<a href="https://www.21food.cn/about/lxwm.htm" target="_blank">ÁªÏµÎÒÃÇ</a> |
+		<a href="https://www.21food.cn/help/help_problem.html" target="_blank">ÍøÕ¾°ïÖú</a><br/>
+	
+	<a href="https://www.21food.cn/">Ê³Æ·ÉÌÎñÍø</a> °æÈ¨ËùÓÐ 2002-2016
+	ICPÖ¤: ÕãB2-20090288-1 
+		
+
+</div>
+
+</body>
+</html>
+<!-- <script src="js/lightbox.js" type="text/javascript"></script> -->
+
